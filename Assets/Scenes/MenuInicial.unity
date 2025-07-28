@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 104951916}
   - component: {fileID: 104951915}
   - component: {fileID: 104951914}
+  - component: {fileID: 104951917}
   m_Layer: 5
   m_Name: Personaje M
   m_TagString: Untagged
@@ -241,6 +242,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 104951912}
   m_CullTransparentMesh: 1
+--- !u!114 &104951917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 104951912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99bdde34c8d6b2f4baccb7ef9f8c22eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jugadorM: {fileID: 0}
+  jugadorF: {fileID: 0}
 --- !u!1 &310062702
 GameObject:
   m_ObjectHideFlags: 0
@@ -795,7 +810,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &978841902
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1674,7 +1689,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3220474504842607759, guid: 9db0711257ff1734f939a9e191a9c8bb, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4529599549362298338, guid: 9db0711257ff1734f939a9e191a9c8bb, type: 3}
       propertyPath: m_Pivot.x
