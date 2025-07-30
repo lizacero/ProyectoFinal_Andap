@@ -62,4 +62,10 @@ public class MenuSelector : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
+    public void Salir()
+    {
+        Application.Quit();
+        Debug.Log("Saliste del juego");
+    }
+
 }
