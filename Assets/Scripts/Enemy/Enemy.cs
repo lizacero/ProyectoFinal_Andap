@@ -35,7 +35,7 @@ public class Enemy : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         if (target == null)
-            target = GameObject.FindGameObjectWithTag("Jugador")?.transform;
+            target = GameObject.FindGameObjectWithTag("Player")?.transform;
     }
 
     void Update()
