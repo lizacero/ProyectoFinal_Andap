@@ -6,14 +6,11 @@ public class Enemy : MonoBehaviour
 {
     public EnemyData data;
     public Transform target;
-
     private int currentHealth;
+    private bool isLive = true;
     private Rigidbody2D rb;
-
     private Animator anim;
-
     public Transform spriteTransform;
-
     private Vector2 direction;
 
     private void Flip()
@@ -40,21 +37,15 @@ public class Enemy : MonoBehaviour
             target = GameObject.FindGameObjectWithTag("Player")?.transform;
     }
 
-    void Update()
-    {
-        if (target == null) return;
-
-        direction = (target.position - transform.position).normalized;
-
-        Flip();
-        anim.Play("Run");
-    }
 
     void FixedUpdate()
     {
+        if (!isLive) return;
         if (target == null) return;
-
-        rb.MovePosition(rb.position + direction * data.speed * Time.deltaTime);
+        direction = (target.position - transform.position).normalized;
+        rb.MovePosition(rb.position + direction * data.speed * Time.fixedDeltaTime);
+        Flip();
+        anim.Play("Run");
     }
 
     public void TakeDamage(int amount)
@@ -70,6 +61,7 @@ public class Enemy : MonoBehaviour
     private void Die()
     {
         anim.SetBool("Dead", true);
+        isLive = false;
         GameManager.instance.AddPoints(data.pointsOnDeath);
         Destroy(gameObject, 2f);
     }
