@@ -103,7 +103,7 @@ GameObject:
   - component: {fileID: 2595648053613664139}
   m_Layer: 0
   m_Name: Enemy0
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -256,7 +256,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: d5ec618e832fec14a8a00a8d90e0d974, type: 2}
-  target: {fileID: 4831869788858668684, guid: 6eb58c8c5ef3a644d9b94d34b2c22619, type: 3}
+  target: {fileID: 0}
   spriteTransform: {fileID: 4621067570372303926}
 --- !u!95 &2595648053613664139
 Animator:

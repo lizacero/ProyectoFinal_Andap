@@ -47,7 +47,6 @@ public class Enemy : MonoBehaviour
         direction = (target.position - transform.position).normalized;
 
         Flip();
-
         anim.Play("Run");
     }
 
@@ -74,7 +73,7 @@ public class Enemy : MonoBehaviour
         GameManager.instance.AddPoints(data.pointsOnDeath);
         Destroy(gameObject, 2f);
     }
-}
+
 
     // PRUEBAS DANIELA //////////////////////////////////////////////////////////
     void OnTriggerEnter2D(Collider2D other)
