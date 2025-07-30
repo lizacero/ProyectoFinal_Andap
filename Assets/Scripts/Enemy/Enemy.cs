@@ -75,3 +75,26 @@ public class Enemy : MonoBehaviour
         Destroy(gameObject, 2f);
     }
 }
+
+    // PRUEBAS DANIELA //////////////////////////////////////////////////////////
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (!other.CompareTag("Bullet")) return;
+
+        currentHealth -= other.GetComponent<Bullet>().damage;
+        if (currentHealth > 0)
+        {
+            anim.SetTrigger("Hit");
+        }
+        else
+        {
+            Die();
+        }
+    }
+
+    private void Dead()
+    {
+        gameObject.SetActive(false);
+        GameManager.instance.AddPoints(data.pointsOnDeath);
+    }
+}

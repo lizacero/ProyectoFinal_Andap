@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     public PlayerController player;
     public int score = 0;
-    public Text scoreText;
+    //public Text scoreText;
 
     private void Awake()
     {
@@ -26,6 +26,6 @@ public class GameManager : MonoBehaviour
     public void AddPoints(int amount)
     {
         score += amount;
-        scoreText.text = "Puntos: " + score;
+        //scoreText.text = "Puntos: " + score;
     }
 }
