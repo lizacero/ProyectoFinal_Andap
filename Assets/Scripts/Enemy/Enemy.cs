@@ -14,6 +14,8 @@ public class Enemy : MonoBehaviour
 
     public Transform spriteTransform;
 
+    private Vector2 direction;
+
     private void Flip()
     {
         if (target != null && spriteTransform != null)
@@ -42,12 +44,18 @@ public class Enemy : MonoBehaviour
     {
         if (target == null) return;
 
-        Vector2 direction = (target.position - transform.position).normalized;
-        rb.MovePosition(rb.position + direction * data.speed * Time.deltaTime);
+        direction = (target.position - transform.position).normalized;
 
         Flip();
 
         anim.Play("Run");
+    }
+
+    void FixedUpdate()
+    {
+        if (target == null) return;
+
+        rb.MovePosition(rb.position + direction * data.speed * Time.deltaTime);
     }
 
     public void TakeDamage(int amount)

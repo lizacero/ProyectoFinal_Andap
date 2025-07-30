@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         // Buscar directamente el componente PlayerController en la escena
-        player = FindObjectOfType<PlayerController>();
+        player = FindAnyObjectByType<PlayerController>();
         if (player == null)
         {
             Debug.LogError("No se encontró ningún PlayerController en la escena");
