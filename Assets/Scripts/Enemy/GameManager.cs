@@ -5,6 +5,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     public PlayerController player;
+    public PoolManager pool;
     public int score = 0;
     //public Text scoreText;
 
@@ -12,15 +13,12 @@ public class GameManager : MonoBehaviour
     {
         if (instance == null) instance = this;
         else Destroy(gameObject);
+        player = FindAnyObjectByType<PlayerController>();
+        pool = FindAnyObjectByType<PoolManager>();
     }
     void Start()
     {
-        // Buscar directamente el componente PlayerController en la escena
-        player = FindAnyObjectByType<PlayerController>();
-        if (player == null)
-        {
-            Debug.LogError("No se encontró ningún PlayerController en la escena");
-        }
+        
     }
 
     public void AddPoints(int amount)
