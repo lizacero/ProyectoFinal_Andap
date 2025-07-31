@@ -17,7 +17,7 @@ public class MenuSelector : MonoBehaviour
         index = PlayerPrefs.GetInt("JugadorIndex");
         CambiarPantalla();
 
-        if (index > manager.personajes.Count -1)
+        if (index > manager.personajes.Count +1)
         {
             index = 0;
         }
