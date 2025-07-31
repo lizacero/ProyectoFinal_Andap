@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
     public PlayerController player;
     public PoolManager pool;
     public int score = 0;
-    //public Text scoreText;
+    public int currentLevel = 1;
 
     private void Awake()
     {
@@ -25,5 +25,10 @@ public class GameManager : MonoBehaviour
     {
         score += amount;
         //scoreText.text = "Puntos: " + score;
+    }
+
+    public void SetLevel(int level)
+    {
+        currentLevel = level;
     }
 }

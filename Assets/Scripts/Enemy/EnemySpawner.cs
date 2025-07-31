@@ -2,23 +2,39 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    public EnemyData[] enemyTypes;
-    public GameObject enemyPrefab;
-    public float spawnInterval = 5f;
     public Transform[] spawnPoints;
+    public GameObject[] enemyPrefab;
+    //public EnemyData[] enemiesByLevel;
+    public float spawnRate = 5f;
+    private float timer;
+    public int currentLevel = 0;
 
-    private void Start()
+    void Update()
     {
-        InvokeRepeating(nameof(SpawnEnemy), 2f, spawnInterval);
+        timer += Time.deltaTime;
+
+        if (timer >= spawnRate)
+        {
+            SpawnEnemy();
+            timer = 0f;
+
+            
+            if (spawnRate > 1f)
+                spawnRate -= 0.05f;
+        }
     }
 
     void SpawnEnemy()
     {
-        Transform point = spawnPoints[Random.Range(0, spawnPoints.Length)];
-        EnemyData data = enemyTypes[Random.Range(0, enemyTypes.Length)];
+        int level = GameManager.instance.currentLevel;
+        int enemyCount = Mathf.Min(currentLevel + 2, enemyPrefab.Length);
+        //int index = Random.Range(0, enemyCount);
 
-        GameObject newEnemy = Instantiate(enemyPrefab, point.position, Quaternion.identity);
-        Enemy enemyScript = newEnemy.GetComponent<Enemy>();
-        enemyScript.data = data;
+        Transform point = spawnPoints[Random.Range(0, spawnPoints.Length)];
+        int randomPrefabIndex = Random.Range(0, enemyPrefab.Length);
+        GameObject enemy = Instantiate(enemyPrefab[randomPrefabIndex], point.position, Quaternion.identity);
+
+        Enemy enemyScript = enemy.GetComponent<Enemy>();
+        //enemyScript.data = enemyPrefab[index].GetComponent<Enemy>().data;
     }
 }
