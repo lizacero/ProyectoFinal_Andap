@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     public PlayerController player;
     public PoolManager pool;
     public int score = 0;
+    //public Text scoretext;
     public int currentLevel = 1;
 
     private void Awake()
