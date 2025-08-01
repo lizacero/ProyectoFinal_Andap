@@ -49,7 +49,7 @@ public class MenuPausa : MonoBehaviour
 
     public void Cerrar()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        SceneManager.LoadScene(0);
     }
 
 }
