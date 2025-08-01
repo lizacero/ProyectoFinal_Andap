@@ -73,11 +73,13 @@ public class Enemy : MonoBehaviour
         rb.linearVelocity = Vector2.zero;
         GameManager.instance.AddPoints(data.pointsOnDeath);
         Destroy(gameObject, 2f);
+        GameManager.instance.GetExp();
+        GameManager.instance.kill++;
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (!other.CompareTag("Bullet")) return;
+        if (!other.CompareTag("Bullet") || !isLive) return;
         //StartCoroutine(KnockBack());
 
         currentHealth -= other.GetComponent<Bullet>().damage;
