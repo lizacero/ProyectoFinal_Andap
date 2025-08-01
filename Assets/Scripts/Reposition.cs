@@ -11,7 +11,7 @@ public class Reposition : MonoBehaviour
     void OnTriggerExit2D(Collider2D collision)
     {
         Transform playerTransform = null;
-        //GameObject playerObject = null;
+        PlayerController playerController = null;
     
         // Intentar obtener del GameManager primero
         if (GameManager.instance != null && GameManager.instance.player != null)
@@ -25,7 +25,7 @@ public class Reposition : MonoBehaviour
             if (playerObj != null)
             {
                  playerTransform = playerObj.transform;
-                 //playerObject = playerObj;
+                 playerController = playerObj.GetComponent<PlayerController>();
             }
         }
     
@@ -47,8 +47,8 @@ public class Reposition : MonoBehaviour
         float diffX = Mathf.Abs(playerPosition.x - myPosition.x);
         float diffY = Mathf.Abs(playerPosition.y - myPosition.y);
 
-        Vector2 playerDirection = GameManager.instance.player.inputVector;
-        //Vector2 playerDirection = playerObject.inputVector;
+        //Vector2 playerDirection = GameManager.instance.player.inputVector;
+        Vector2 playerDirection = playerController.inputVector;
         float directionX = playerDirection.x < 0 ? -1 : 1;
         float directionY = playerDirection.y < 0 ? -1 : 1;
 
