@@ -355,6 +355,8 @@ MonoBehaviour:
   currentLevel: 1
   gameTime: 0
   maxGameTime: 20
+  health: 0
+  maxHealth: 100
   level: 0
   kill: 0
   exp: 0
@@ -4947,15 +4949,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4159661832346118746, guid: 52bdfecd0558e8440863e4b096bd43ed, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4159661832346118746, guid: 52bdfecd0558e8440863e4b096bd43ed, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4159661832346118746, guid: 52bdfecd0558e8440863e4b096bd43ed, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4390421106854847712, guid: 52bdfecd0558e8440863e4b096bd43ed, type: 3}
       propertyPath: m_Pivot.x
@@ -5035,6 +5037,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4390421106854847712, guid: 52bdfecd0558e8440863e4b096bd43ed, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7479370243773345263, guid: 52bdfecd0558e8440863e4b096bd43ed, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7479370243773345263, guid: 52bdfecd0558e8440863e4b096bd43ed, type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
