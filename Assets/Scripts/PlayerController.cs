@@ -4,7 +4,9 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     public Vector2 inputVector;
-    [SerializeField] private float speed = 3f;
+    public float speed = 3f;
+    public Scanner scanner;
+    
     private Rigidbody2D rb;
     private SpriteRenderer sprite;
     private Animator animator;
@@ -14,6 +16,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
+        scanner = GetComponent<Scanner>();
     }
 
     void Start()

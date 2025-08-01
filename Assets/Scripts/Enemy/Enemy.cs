@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEditor.Build.Content;
 using UnityEngine;
 using UnityEngine.AI;
@@ -12,6 +13,7 @@ public class Enemy : MonoBehaviour
     private Animator anim;
     public Transform spriteTransform;
     private Vector2 direction;
+    private WaitForFixedUpdate wait;
 
     private void Flip()
     {
@@ -28,6 +30,11 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    void Awake()
+    {
+        wait = new WaitForFixedUpdate();
+    }
+
     void Start()
     {
         currentHealth = data.maxHealth;
@@ -40,7 +47,7 @@ public class Enemy : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (!isLive) return;
+        if (!isLive || anim.GetCurrentAnimatorStateInfo(0).IsName("Hit")) return;
         if (target == null) return;
         direction = (target.position - transform.position).normalized;
         rb.MovePosition(rb.position + direction * data.speed * Time.fixedDeltaTime);
@@ -62,13 +69,18 @@ public class Enemy : MonoBehaviour
     {
         anim.SetBool("Dead", true);
         isLive = false;
+        GetComponent<Collider2D>().enabled = false;
+        rb.linearVelocity = Vector2.zero;
         GameManager.instance.AddPoints(data.pointsOnDeath);
         Destroy(gameObject, 2f);
+        GameManager.instance.GetExp();
+        GameManager.instance.kill++;
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (!other.CompareTag("Bullet")) return;
+        if (!other.CompareTag("Bullet") || !isLive) return;
+        //StartCoroutine(KnockBack());
 
         currentHealth -= other.GetComponent<Bullet>().damage;
         if (currentHealth > 0)
@@ -80,5 +92,14 @@ public class Enemy : MonoBehaviour
             Die();
         }
     }
+
+    //IEnumerator KnockBack()
+    //{ 
+        //yield return wait;
+    //    Vector3 playerPos = GameManager.instance.player.transform.position;
+    //    Vector3 dirVec = (transform.position - playerPos).normalized;
+    //    rb.AddForce(dirVec * 3f, ForceMode2D.Impulse);
+    //    anim.SetTrigger("Hit");
+    //}
 
 }
