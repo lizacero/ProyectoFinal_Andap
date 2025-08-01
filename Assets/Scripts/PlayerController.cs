@@ -49,4 +49,24 @@ public class PlayerController : MonoBehaviour
         }
         animator.SetFloat("Speed", inputVector.magnitude);
     }
+
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.tag == "Enemy")
+        {
+            GameManager.instance.health -= 10;
+        }
+        if (GameManager.instance.health <= 0)
+        {
+            //Die();
+        }
+    }
+    
+    void Die()
+    {
+        animator.SetTrigger("Dead");
+        rb.linearVelocity = Vector2.zero;
+        GameManager.instance.health = 0;
+        //pantalla de muerte
+    }
 }
