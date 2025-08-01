@@ -730,6 +730,7 @@ GameObject:
   - component: {fileID: 5069763148503292585}
   - component: {fileID: 2524045100784365000}
   - component: {fileID: 8089182333191938570}
+  - component: {fileID: 5171903756113451365}
   m_Layer: 0
   m_Name: Player1
   m_TagString: Player
@@ -753,8 +754,8 @@ Transform:
   - {fileID: 6875859846320655052}
   - {fileID: 2037439242178458097}
   - {fileID: 8846995698218854571}
-  - {fileID: 7921061943823684109}
   - {fileID: 6245950969571355938}
+  - {fileID: 7921061943823684109}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8692758171365236021
@@ -890,6 +891,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputVector: {x: 0, y: 0}
   speed: 3
+  scanner: {fileID: 0}
 --- !u!114 &2524045100784365000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -942,6 +944,23 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &5171903756113451365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2802492291799716587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c7761c3683d3fb4ea88d3281c0cef4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scanRange: 4
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  nearestTarget: {fileID: 0}
 --- !u!1 &2916044210980523002
 GameObject:
   m_ObjectHideFlags: 0
@@ -2075,7 +2094,7 @@ GameObject:
   - component: {fileID: 7921061943823684109}
   - component: {fileID: 2764320514049069530}
   m_Layer: 0
-  m_Name: Weapon
+  m_Name: Weapon 0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2113,6 +2132,7 @@ MonoBehaviour:
   damage: 10
   count: 2
   speed: 0
+  player: {fileID: 0}
 --- !u!1 &8925516893056917814
 GameObject:
   m_ObjectHideFlags: 0
