@@ -4,7 +4,7 @@ public class Weapon : MonoBehaviour
 {
     public int id;
     public int prefabId;
-    public int damage;
+    public float damage;
     public int count;
     public float speed;
     private float timer;
@@ -13,14 +13,18 @@ public class Weapon : MonoBehaviour
 
     private void Awake()
     {
-        player = GameManager.instance.player;
+       player = GameManager.instance.player;
         if (player == null)
         {
             player = FindAnyObjectByType<PlayerController>();
         }
+        //player = GetComponentInParent<PlayerController>();   
     }
 
- 
+    //void Start()
+    //{
+    //    Init();
+    //}
 
     void Update()
     {
@@ -46,18 +50,61 @@ public class Weapon : MonoBehaviour
         }
     }
 
+    public void LevelUp(float damage, int count)
+    {
+        this.damage = damage;
+        this.count += count;
+        if (id == 0)
+        {
+            Batch();
+        }
+    }
+
+    //public void Init(ItemData data)
+    //  {
+
+    //    name = "Weapon" + data.itemID;
+    //    transform.parent = player.transform;
+    //    transform.localPosition = Vector3.zero;
+
+    //    id = data.itemID;
+    //    damage = data.baseDamage;
+    //    count = data.baseCount;
+
+    //    for (int i = 0; i < GameManager.instance.pool.transform.childCount; i++)
+    //    {
+    //        if (data.projectile == GameManager.instance.pool.prefabs[i])
+    //        {
+    //            prefabId = i;
+    //            break;
+    //        }
+    //    }
+
+    //    switch (id)
+    //    {
+    //        case 0:
+    //            speed = 150;
+    //            Batch();
+    //            break;
+    //        default:
+    //            speed = 0.3f;
+    //            break;
+    //    }
+    //}
+
     public void Init(ItemData data)
     {
-
+        // Basic set
         name = "Weapon" + data.itemID;
         transform.parent = player.transform;
         transform.localPosition = Vector3.zero;
 
+        // Property set
         id = data.itemID;
         damage = data.baseDamage;
         count = data.baseCount;
 
-        for (int i = 0; i < GameManager.instance.pool.transform.childCount; i++)
+        for (int i = 0; i < GameManager.instance.pool.prefabs.Length; i++)
         {
             if (data.projectile == GameManager.instance.pool.prefabs[i])
             {
@@ -75,16 +122,6 @@ public class Weapon : MonoBehaviour
             default:
                 speed = 0.3f;
                 break;
-        }
-    }
-
-    public void LevelUp(int damage, int count)
-    {
-        this.damage += damage;
-        this.count += count;
-        if (id == 0)
-        {
-            Batch();
         }
     }
 

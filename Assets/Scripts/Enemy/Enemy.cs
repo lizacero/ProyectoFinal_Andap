@@ -7,7 +7,7 @@ public class Enemy : MonoBehaviour
 {
     public EnemyData data;
     public Transform target;
-    private int currentHealth;
+    private float currentHealth;
     private bool isLive = true;
     private Rigidbody2D rb;
     private Animator anim;
@@ -55,7 +55,7 @@ public class Enemy : MonoBehaviour
         anim.Play("Run");
     }
 
-    public void TakeDamage(int amount)
+    public void TakeDamage(float amount)
     {
         currentHealth -= amount;
         anim.SetTrigger("Hit");

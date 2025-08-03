@@ -27,8 +27,15 @@ public class GameManager : MonoBehaviour
     {
         if (instance == null) instance = this;
         else Destroy(gameObject);
-        player = FindAnyObjectByType<PlayerController>();
-        pool = FindAnyObjectByType<PoolManager>();
+
+        if (player == null)
+        {
+            player = FindAnyObjectByType<PlayerController>();
+        }
+        if (pool == null)
+        {
+            pool = FindAnyObjectByType<PoolManager>();
+        }
     }
     void Start()
     {

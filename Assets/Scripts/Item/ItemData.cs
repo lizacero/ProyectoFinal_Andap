@@ -14,7 +14,7 @@ public class ItemData : ScriptableObject
     public Sprite itemIcon;
 
     [Header("# Level Data")]
-    public int baseDamage;
+    public float baseDamage;
     public int baseCount;
     public float[] damages;
     public int[] counts;

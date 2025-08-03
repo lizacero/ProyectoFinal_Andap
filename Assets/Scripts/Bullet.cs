@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public int damage;
+    public float damage;
     public int per;
 
     private Rigidbody2D rb;
@@ -12,7 +12,7 @@ public class Bullet : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    public void Init(int damage, int per, Vector3 dir)
+    public void Init(float damage, int per, Vector3 dir)
     {
         this.damage = damage;
         this.per = per;

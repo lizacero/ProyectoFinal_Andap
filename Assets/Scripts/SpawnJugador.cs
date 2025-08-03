@@ -12,11 +12,13 @@ public class SpawnJugador : MonoBehaviour
         {
             personajes[0].SetActive(true);
             personajes[1].SetActive(false);
+            GameManager.instance.player = personajes[0].GetComponent<PlayerController>();
         }
         else if (indexJugador == 1)
         {
             personajes[0].SetActive(false);
             personajes[1].SetActive(true);
+            GameManager.instance.player = personajes[1].GetComponent<PlayerController>();
         }
     }
 

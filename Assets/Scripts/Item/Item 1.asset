@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Item 1
   m_EditorClassIdentifier: 
   itemType: 1
-  itemID: 0
+  itemID: 1
   itemName: Pistola
   itemDesc: 
   itemIcon: {fileID: -205726582, guid: d71a3dc7aa20fad4f9a99fc76a9254ba, type: 3}

@@ -29,19 +29,19 @@ public class Item : MonoBehaviour
         switch (data.itemType)
         {
             case ItemData.ItemType.Melee:
-                break;
             case ItemData.ItemType.Range:
-                GameObject newWeapon = new GameObject();
-                weapon = newWeapon.AddComponent<Weapon>();
-                weapon.Init(data);
+                if (level == 0)
+                {
+                    GameObject newWeapon = new GameObject();
+                    weapon = newWeapon.AddComponent<Weapon>();
+                    weapon.Init(data);
+                }
                 break;
             case ItemData.ItemType.Glove:
                 break;
             case ItemData.ItemType.Shoe:
                 break;
             case ItemData.ItemType.Heal:
-                break;
-            default:
                 break;
         }
 
