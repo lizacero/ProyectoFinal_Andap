@@ -58,39 +58,9 @@ public class Weapon : MonoBehaviour
         {
             Batch();
         }
+
+        player.BroadcastMessage("ApplyGear", SendMessageOptions.DontRequireReceiver);
     }
-
-    //public void Init(ItemData data)
-    //  {
-
-    //    name = "Weapon" + data.itemID;
-    //    transform.parent = player.transform;
-    //    transform.localPosition = Vector3.zero;
-
-    //    id = data.itemID;
-    //    damage = data.baseDamage;
-    //    count = data.baseCount;
-
-    //    for (int i = 0; i < GameManager.instance.pool.transform.childCount; i++)
-    //    {
-    //        if (data.projectile == GameManager.instance.pool.prefabs[i])
-    //        {
-    //            prefabId = i;
-    //            break;
-    //        }
-    //    }
-
-    //    switch (id)
-    //    {
-    //        case 0:
-    //            speed = 150;
-    //            Batch();
-    //            break;
-    //        default:
-    //            speed = 0.3f;
-    //            break;
-    //    }
-    //}
 
     public void Init(ItemData data)
     {
@@ -123,6 +93,8 @@ public class Weapon : MonoBehaviour
                 speed = 0.3f;
                 break;
         }
+
+        player.BroadcastMessage("ApplyGear", SendMessageOptions.DontRequireReceiver);
     }
 
     void Batch()
