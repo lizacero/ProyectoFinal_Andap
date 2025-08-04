@@ -61,7 +61,7 @@ public class Enemy : MonoBehaviour
     {
         currentHealth -= amount;
         anim.SetTrigger("Hit");
-        if(currentHealth <= 0)
+        if (currentHealth <= 0)
         {
             Die();
         }
@@ -97,11 +97,10 @@ public class Enemy : MonoBehaviour
 
     //IEnumerator KnockBack()
     //{ 
-        //yield return wait;
+    //    yield return wait;
     //    Vector3 playerPos = GameManager.instance.player.transform.position;
     //    Vector3 dirVec = (transform.position - playerPos).normalized;
-    //    rb.AddForce(dirVec * 3f, ForceMode2D.Impulse);
-    //    anim.SetTrigger("Hit");
+    //    rb.AddForce(dirVec * 1f, ForceMode2D.Impulse);
+    //   anim.SetTrigger("Hit");
     //}
-
 }
