@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,12 +8,12 @@ public class HUD : MonoBehaviour
     public enum InfoType { Exp,Level,Kill, Time,Health }
     public InfoType type;
 
-    Text MyText;
+    TextMeshProUGUI MyText;
     Slider MySlider;
 
     private void Awake()
     {
-        MyText = GetComponent<Text>();
+        MyText = GetComponent<TextMeshProUGUI>();
         MySlider = GetComponent<Slider>();
     }
 
@@ -26,12 +27,18 @@ public class HUD : MonoBehaviour
                 MySlider.value = curExp/maxExp;
                 break;
             case InfoType.Level:
+                MyText.text = string.Format("Lv.{0:F0}", GameManager.instance.level);
                 break;
 
             case InfoType.Kill:
-                 break;
+                MyText.text = string.Format("{0:F0}", GameManager.instance.kill);
+                break;
 
             case InfoType.Time:
+                float remainTime = GameManager.instance.maxGameTime - GameManager.instance.gameTime;
+                int min = Mathf.FloorToInt(remainTime / 60);
+                int sec = Mathf.FloorToInt(remainTime % 60);
+                MyText.text = string.Format("{0:D2}:{1:D2}", min, sec);
                 break;
 
             case InfoType.Health:

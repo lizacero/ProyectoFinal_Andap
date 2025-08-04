@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        gameTime = Time.deltaTime;
+        gameTime += Time.deltaTime;
         if (gameTime > maxGameTime)
         {
             gameTime = maxGameTime;
