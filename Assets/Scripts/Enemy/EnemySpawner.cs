@@ -11,6 +11,7 @@ public class EnemySpawner : MonoBehaviour
 
     void Update()
     {
+        if (!GameManager.instance.isLive) return;
         timer += Time.deltaTime;
 
         if (timer >= spawnRate)

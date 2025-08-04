@@ -52,6 +52,11 @@ public class Item : MonoBehaviour
 
     public void OnClick()
     {
+        if (data == null)
+        {
+            Debug.LogError("ItemData es null en Item.OnClick()");
+            return;
+        }
         switch (data.itemType)
         {
             case ItemData.ItemType.Melee:

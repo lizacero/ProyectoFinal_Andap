@@ -29,17 +29,20 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         //inputVector.x = Input.GetAxisRaw("Horizontal");
         //inputVector.y = Input.GetAxisRaw("Vertical");
     }
     private void FixedUpdate()
     {
+        if (!GameManager.instance.isLive) return;
         Vector2 nextVector = inputVector.normalized * speed * Time.fixedDeltaTime;
         rb.MovePosition(rb.position + nextVector);
     }
 
     private void OnMove(InputValue value)
     {
+        if (!GameManager.instance.isLive) return;
         inputVector = value.Get<Vector2>();
         if (inputVector.x > 0)
         {

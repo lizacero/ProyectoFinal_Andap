@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,11 +11,13 @@ public class GameManager : MonoBehaviour
     public int score = 0;
     //public Text scoretext;
     public int currentLevel = 1;
+    public LevelUp uiLevelUp;
 
     [Header("# Game Control")]
     public float gameTime;
     public float maxGameTime = 2*10f;
     [Header("# Player Info")]
+    public bool isLive = true;
     public int health;
     public int maxHealth = 100;
     public int level;
@@ -25,6 +28,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        isLive = true;
         if (instance == null) instance = this;
         else Destroy(gameObject);
 
@@ -40,11 +44,15 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         health = maxHealth;
+
+        StartCoroutine(InitializeAfterPlayer());
     }
 
     void Update()
     {
-        gameTime = Time.deltaTime;
+        if (!isLive) return;
+
+        gameTime += Time.deltaTime;
         if (gameTime > maxGameTime)
         {
             gameTime = maxGameTime;
@@ -54,10 +62,11 @@ public class GameManager : MonoBehaviour
     public void GetExp()
     {
         exp++;
-        if (exp == nextExp[level])
+        if (exp == nextExp[Mathf.Min(level, nextExp.Length - 1)])
         {
             level++;
             exp = 0;
+            uiLevelUp.Show();
         }
     }
 
@@ -71,4 +80,22 @@ public class GameManager : MonoBehaviour
     {
         currentLevel = level;
     }
+
+    IEnumerator InitializeAfterPlayer()
+    {
+        yield return new WaitForEndOfFrame();
+        uiLevelUp.Select(0);
+    }
+
+    public void Stop()
+    {
+        isLive = false;
+        Time.timeScale = 0;
+    }
+    public void Resume()
+    {
+        isLive = true;
+        Time.timeScale = 1;
+    }
+
 }

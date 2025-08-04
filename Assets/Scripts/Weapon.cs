@@ -28,6 +28,7 @@ public class Weapon : MonoBehaviour
 
     void Update()
     {
+        if (!GameManager.instance.isLive) return;
         switch (id)
         {
             case 0:
@@ -64,6 +65,18 @@ public class Weapon : MonoBehaviour
 
     public void Init(ItemData data)
     {
+        if (data == null)
+        {
+            Debug.LogError("ItemData es null en Weapon.Init()");
+            return;
+        }
+        if (player == null)
+        {
+            player = GameManager.instance.player;
+            Debug.LogError("Player es null en Weapon.Init()");
+            return;
+        }
+
         // Basic set
         name = "Weapon" + data.itemID;
         transform.parent = player.transform;

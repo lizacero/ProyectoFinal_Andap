@@ -17,6 +17,7 @@ public class Enemy : MonoBehaviour
 
     private void Flip()
     {
+        if (!GameManager.instance.isLive) return;
         if (target != null && spriteTransform != null)
         {
             if (target.position.x < transform.position.x)
@@ -47,6 +48,7 @@ public class Enemy : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (!GameManager.instance.isLive) return;
         if (!isLive || anim.GetCurrentAnimatorStateInfo(0).IsName("Hit")) return;
         if (target == null) return;
         direction = (target.position - transform.position).normalized;
