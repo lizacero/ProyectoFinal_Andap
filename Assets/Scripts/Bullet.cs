@@ -16,7 +16,7 @@ public class Bullet : MonoBehaviour
     {
         this.damage = damage;
         this.per = per;
-        
+
         if (per > -1)
         {
             rb.linearVelocity = dir * 15f;
@@ -25,16 +25,17 @@ public class Bullet : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (!other.CompareTag("Enemy")|| per == -1)
+        if (!other.CompareTag("Enemy") || per == -1)
         {
             return;
         }
         per--;
 
-        if (per ==-1)
+        if (per == -1)
         {
             rb.linearVelocity = Vector2.zero;
             gameObject.SetActive(false);
         }
     }
 }
+
