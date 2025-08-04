@@ -15,7 +15,7 @@ MonoBehaviour:
   itemType: 2
   itemID: 2
   itemName: Guante
-  itemDesc: 
+  itemDesc: Velocidad de ataque +{0}%
   itemIcon: {fileID: -201829820, guid: d71a3dc7aa20fad4f9a99fc76a9254ba, type: 3}
   baseDamage: 0
   baseCount: 0

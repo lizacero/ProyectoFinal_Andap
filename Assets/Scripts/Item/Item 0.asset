@@ -15,7 +15,7 @@ MonoBehaviour:
   itemType: 0
   itemID: 0
   itemName: Pala
-  itemDesc: 
+  itemDesc: "Da\xF1o de ataque +{0}%\nCantidad de items +{1}"
   itemIcon: {fileID: -181907988, guid: d71a3dc7aa20fad4f9a99fc76a9254ba, type: 3}
   baseDamage: 4.5
   baseCount: 3
