@@ -17,7 +17,7 @@ public class LoadScene : MonoBehaviour
 
     void Victoria()
     {
-        if (Input.GetKeyDown(KeyCode.X)) 
+        if (Input.GetKeyDown(KeyCode.V)) 
         {
             PantallaDerrota.SetActive(false);
             PantallaVictoria.SetActive(true);
@@ -27,7 +27,7 @@ public class LoadScene : MonoBehaviour
 
     void Derrota()
     {
-        if (Input.GetKeyDown(KeyCode.C))
+        if (GameManager.instance.health <=0)
         {
             PantallaVictoria.SetActive(false);
             PantallaDerrota.SetActive(true);
