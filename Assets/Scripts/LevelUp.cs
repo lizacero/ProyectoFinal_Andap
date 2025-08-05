@@ -4,6 +4,8 @@ public class LevelUp : MonoBehaviour
 {
     RectTransform rect;
     Item[] items;
+    public AudioSource audioSource;
+    public AudioClip LevelUpClip;
 
     void Awake()
     {
@@ -42,10 +44,15 @@ public class LevelUp : MonoBehaviour
 
     void Next()
     {
-        foreach (Item item in items)
+        if (audioSource != null && LevelUpClip != null)
         {
-            item.gameObject.SetActive(false);
+            audioSource.PlayOneShot(LevelUpClip);
         }
+
+            foreach (Item item in items)
+            {
+                item.gameObject.SetActive(false);
+            }
 
         int[] ran = new int[3];
         while (true)
