@@ -16,7 +16,7 @@ public class LoadScene : MonoBehaviour
 
 
     public void Victoria()
-    {
+    { 
             PantallaVictoria.SetActive(true);
             Time.timeScale = 0;
     }
