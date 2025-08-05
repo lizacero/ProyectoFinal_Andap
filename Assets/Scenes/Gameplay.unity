@@ -354,6 +354,7 @@ MonoBehaviour:
   score: 0
   currentLevel: 1
   uiLevelUp: {fileID: 419427199}
+  loadScene: {fileID: 892557606}
   gameTime: 0
   maxGameTime: 20
   isLive: 0
@@ -531,6 +532,10 @@ PrefabInstance:
     - target: {fileID: 4831869788858668684, guid: 6eb58c8c5ef3a644d9b94d34b2c22619, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6732181624097947090, guid: 6eb58c8c5ef3a644d9b94d34b2c22619, type: 3}
+      propertyPath: spawnRate
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -5078,6 +5083,17 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   CustomBlends: {fileID: 0}
+--- !u!114 &892557606 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2455276570388082596, guid: 17f667d1912ea4d4aa3eafe49b4e3147, type: 3}
+  m_PrefabInstance: {fileID: 1909809249}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c454558324e2efc468165f4826fad796, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &914134772
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5364,15 +5380,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2852251895029096989, guid: 52bdfecd0558e8440863e4b096bd43ed, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2852251895029096989, guid: 52bdfecd0558e8440863e4b096bd43ed, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2852251895029096989, guid: 52bdfecd0558e8440863e4b096bd43ed, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3022450405509043837, guid: 52bdfecd0558e8440863e4b096bd43ed, type: 3}
       propertyPath: m_Pivot.x
@@ -6054,7 +6070,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 0.5
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

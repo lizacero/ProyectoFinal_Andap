@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     public float speed = 3f;
     public Scanner scanner;
     public Hand[] hands;
+    public LoadScene loadScene;
     
     private Rigidbody2D rb;
     private SpriteRenderer sprite;
@@ -55,23 +56,27 @@ public class PlayerController : MonoBehaviour
         animator.SetFloat("Speed", inputVector.magnitude);
     }
 
-    void OnCollisionEnter2D(Collision2D other)
+    void OnCollisionStay2D(Collision2D other)
     {
         if (other.gameObject.tag == "Enemy")
         {
-            GameManager.instance.health -= 10;
+            GameManager.instance.health -= Time.deltaTime * 10;
         }
         if (GameManager.instance.health <= 0)
         {
-            //Die();
+            Die();
         }
     }
     
     void Die()
     {
+
+        for (int i=3; i<transform.childCount; i++)
+        {
+            transform.GetChild(i).gameObject.SetActive(false);
+        }
         animator.SetTrigger("Dead");
+        GetComponent<Collider2D>().enabled = false;
         rb.linearVelocity = Vector2.zero;
-        GameManager.instance.health = 0;
-        //pantalla de muerte
     }
 }

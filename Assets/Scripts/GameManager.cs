@@ -12,14 +12,15 @@ public class GameManager : MonoBehaviour
     //public Text scoretext;
     public int currentLevel = 1;
     public LevelUp uiLevelUp;
+    public LoadScene loadScene;
 
     [Header("# Game Control")]
     public float gameTime;
     public float maxGameTime = 2*10f;
     [Header("# Player Info")]
     public bool isLive;
-    public int health;
-    public int maxHealth = 100;
+    public float health;
+    public float maxHealth = 100;
     public int level;
     public int kill;
     public int exp;
@@ -40,10 +41,11 @@ public class GameManager : MonoBehaviour
         {
             pool = FindAnyObjectByType<PoolManager>();
         }
+        health = maxHealth;
     }
     void Start()
     {
-        health = maxHealth;
+        
 
         StartCoroutine(InitializeAfterPlayer());
     }
@@ -56,6 +58,11 @@ public class GameManager : MonoBehaviour
         if (gameTime > maxGameTime)
         {
             gameTime = maxGameTime;
+            loadScene.Victoria();
+        }
+        if (health <= 0)
+        {
+            loadScene.Derrota();
         }
     }
 
