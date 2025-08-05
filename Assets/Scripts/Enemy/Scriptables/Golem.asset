@@ -15,6 +15,6 @@ MonoBehaviour:
   enemyName: Golem
   speed: 1.2
   maxHealth: 150
-  damage: 20
+  damage: 15
   pointsOnDeath: 50
   sprite: {fileID: 172626504, guid: c4d2ccab0c2ad7e47853b6e31a7ac7c2, type: 3}

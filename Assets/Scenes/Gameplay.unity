@@ -355,16 +355,17 @@ MonoBehaviour:
   score: 0
   currentLevel: 1
   uiLevelUp: {fileID: 419427199}
-  loadScene: {fileID: 0}
+  loadScene: {fileID: 1486085683}
   gameTime: 0
-  maxGameTime: 20
+  maxGameTime: 90
   isLive: 0
   health: 0
   maxHealth: 100
   level: 0
   kill: 0
   exp: 0
-  nextExp: 0100000002000000030000000400000005000000060000000700000008000000090000000a000000
+  nextExp: 0300000009000000120000002000000030000000400000004600000054000000600000006c000000
+  enemyData: {fileID: 0}
   audioClipHit: {fileID: 8300000, guid: 0bddcb411d826e14bb26d40ae45d8e22, type: 3}
   audioClipDead: {fileID: 8300000, guid: 291608b8d286e2a4580ff36324455ce2, type: 3}
   audioSource: {fileID: 97907324}
@@ -10766,6 +10767,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+--- !u!114 &1486085683 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2455276570388082596, guid: 17f667d1912ea4d4aa3eafe49b4e3147, type: 3}
+  m_PrefabInstance: {fileID: 1909809249}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c454558324e2efc468165f4826fad796, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1513356941
 GameObject:
   m_ObjectHideFlags: 0

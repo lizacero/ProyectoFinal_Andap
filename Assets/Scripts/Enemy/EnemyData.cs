@@ -6,7 +6,7 @@ public class EnemyData : ScriptableObject
     public string enemyName;
     public float speed;
     public float maxHealth;
-    public int damage;
+    public float damage;
     public int pointsOnDeath;
     public Sprite sprite;
 }

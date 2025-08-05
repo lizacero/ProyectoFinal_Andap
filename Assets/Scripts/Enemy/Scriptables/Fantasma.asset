@@ -15,6 +15,6 @@ MonoBehaviour:
   enemyName: Fantasma
   speed: 2.8
   maxHealth: 40
-  damage: 10
+  damage: 20
   pointsOnDeath: 25
   sprite: {fileID: 1782705385, guid: d33598d781682e049a53a0a13104ef29, type: 3}
