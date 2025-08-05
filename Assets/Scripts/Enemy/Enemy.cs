@@ -34,6 +34,7 @@ public class Enemy : MonoBehaviour
     void Awake()
     {
         wait = new WaitForFixedUpdate();
+        
     }
 
     void Start()
@@ -61,6 +62,9 @@ public class Enemy : MonoBehaviour
     {
         currentHealth -= amount;
         anim.SetTrigger("Hit");
+        //GameManager.instance.PlayHit();
+        //audioSource.PlayOneShot(audioClipHit);
+
         if (currentHealth <= 0)
         {
             Die();
@@ -74,6 +78,8 @@ public class Enemy : MonoBehaviour
         GetComponent<Collider2D>().enabled = false;
         rb.linearVelocity = Vector2.zero;
         GameManager.instance.AddPoints(data.pointsOnDeath);
+        GameManager.instance.PlayDie();
+        //audioSource.PlayOneShot(audioClipDead);
         Destroy(gameObject, 2f);
         GameManager.instance.GetExp();
         GameManager.instance.kill++;
@@ -88,6 +94,7 @@ public class Enemy : MonoBehaviour
         if (currentHealth > 0)
         {
             anim.SetTrigger("Hit");
+            GameManager.instance.PlayHit();
         }
         else
         {

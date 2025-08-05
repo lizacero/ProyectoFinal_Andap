@@ -16,7 +16,7 @@ public class AudioManager : MonoBehaviour
     AudioSource[] sfxPlayers;
     int channelIndex;
 
-    public enum Sfx { Dead, Hit, LevelUp=3, Lose, Melee, Range=7, Select, Win }
+    public enum Sfx { Dead, Hit, LevelUp, Lose, Melee, Range, Select, Win }
 
     private void Awake()
     {
@@ -33,6 +33,7 @@ public class AudioManager : MonoBehaviour
         bgmPlayer.loop = true;
         bgmPlayer.volume = bgmVolume;
         bgmPlayer.clip = bgmClip;
+        bgmPlayer.Play();
 
         GameObject sfxObject = new GameObject("SfxPlayer");
         sfxObject.transform.parent = transform;

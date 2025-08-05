@@ -26,6 +26,9 @@ public class GameManager : MonoBehaviour
     public int exp;
     public int[] nextExp = { 3, 5, 10, 100, 150, 210, 280, 360, 450, 650 };
 
+    public AudioClip audioClipHit;
+    public AudioClip audioClipDead;
+    public AudioSource audioSource;
 
     private void Awake()
     {
@@ -42,11 +45,13 @@ public class GameManager : MonoBehaviour
             pool = FindAnyObjectByType<PoolManager>();
         }
         health = maxHealth;
+
+        audioSource = GetComponent<AudioSource>();
+        //audioClipHit = Resources.Load<AudioClip>("Undead Survivor/Audio/Hit0");
+        //audioClipDead = Resources.Load<AudioClip>("Undead Survivor/Audio/Dead");
     }
     void Start()
     {
-        
-
         StartCoroutine(InitializeAfterPlayer());
     }
 
@@ -103,6 +108,16 @@ public class GameManager : MonoBehaviour
     {
         isLive = true;
         Time.timeScale = 1;
+    }
+
+    public void PlayHit()
+    {
+        audioSource.PlayOneShot(audioClipHit);
+    }
+
+    public void PlayDie()
+    {
+        audioSource.PlayOneShot(audioClipDead);
     }
 
 }
