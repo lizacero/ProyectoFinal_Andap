@@ -60,7 +60,7 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.tag == "Enemy")
         {
-            GameManager.instance.health -= Time.deltaTime * 10;
+            GameManager.instance.health -= Time.deltaTime * other.gameObject.GetComponent<Enemy>().data.damage;
         }
         if (GameManager.instance.health <= 0)
         {

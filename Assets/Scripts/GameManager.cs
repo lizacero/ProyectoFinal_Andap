@@ -26,6 +26,8 @@ public class GameManager : MonoBehaviour
     public int exp;
     public int[] nextExp = { 3, 5, 10, 100, 150, 210, 280, 360, 450, 650 };
 
+    public EnemyData enemyData;
+
     public AudioClip audioClipHit;
     public AudioClip audioClipDead;
     public AudioSource audioSource;
