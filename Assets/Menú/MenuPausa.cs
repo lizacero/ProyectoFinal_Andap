@@ -45,6 +45,7 @@ public class MenuPausa : MonoBehaviour
         JuegoPausado = false;
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        
     }
 
     public void Cerrar()
