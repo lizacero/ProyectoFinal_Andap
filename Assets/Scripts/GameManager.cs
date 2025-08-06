@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     public PoolManager pool;
     public int score = 0;
     //public Text scoretext;
-    public int currentLevel = 1;
+    public int currentLevel;
     public LevelUp uiLevelUp;
     public LoadScene loadScene;
 
@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     public float maxGameTime = 2*10f;
     [Header("# Player Info")]
     public bool isLive;
+    public bool ganar;
     public float health;
     public float maxHealth = 100;
     public int level;
@@ -65,11 +66,15 @@ public class GameManager : MonoBehaviour
         if (gameTime > maxGameTime)
         {
             gameTime = maxGameTime;
-            loadScene.Victoria();
+            loadScene.Derrota();
         }
         if (health <= 0)
         {
             loadScene.Derrota();
+        }
+        if (ganar)
+        {
+            StartCoroutine(Ganando());
         }
     }
 
@@ -122,4 +127,9 @@ public class GameManager : MonoBehaviour
         audioSource.PlayOneShot(audioClipDead);
     }
 
+    IEnumerator Ganando()
+    {
+        yield return new WaitForSeconds(0.5f);
+        loadScene.Victoria();
+    }
 }

@@ -71,7 +71,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private void Die()
+    public void Die()
     {
         anim.SetBool("Dead", true);
         isLive = false;
@@ -100,6 +100,16 @@ public class Enemy : MonoBehaviour
         {
             Die();
         }
+    }
+
+    public void Explosion()
+    {
+        anim.SetBool("Dead", true);
+        isLive = false;
+        GetComponent<Collider2D>().enabled = false;
+        rb.linearVelocity = Vector2.zero;
+        GameManager.instance.AddPoints(data.pointsOnDeath);
+        GameManager.instance.PlayDie();
     }
 
     //IEnumerator KnockBack()

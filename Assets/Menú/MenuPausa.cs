@@ -5,8 +5,16 @@ public class MenuPausa : MonoBehaviour
 {
     [SerializeField] private GameObject botonPausa;
     [SerializeField] private GameObject menuPausa;
+    [SerializeField] private AudioSource musicSource;
+    private bool isSilenced = false;
+    private float originalVolume;
 
     private bool JuegoPausado = false;
+
+    private void Start()
+    {
+        originalVolume = musicSource.volume;
+    }
 
     private void Update()
     {
@@ -51,6 +59,26 @@ public class MenuPausa : MonoBehaviour
     public void Cerrar()
     {
         SceneManager.LoadScene(0);
+    }
+
+    public void ToggleMusic()
+    {
+        if (musicSource == null) return;
+        
+        if (isSilenced)
+        {
+            // Restaurar música
+            musicSource.volume = originalVolume;
+            isSilenced = false;
+            Debug.Log("Música activada");
+        }
+        else
+        {
+            // Silenciar música
+            musicSource.volume = 0f;
+            isSilenced = true;
+            Debug.Log("Música silenciada");
+        }
     }
 
 }

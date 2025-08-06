@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,6 +8,7 @@ public class Item : MonoBehaviour
     public int level;
     public Weapon weapon;
     public Gear gear;
+    public bool ganar = false;
 
     Image icon;
     Text textLevel;
@@ -97,6 +99,15 @@ public class Item : MonoBehaviour
             case ItemData.ItemType.Heal:
                 GameManager.instance.health = GameManager.instance.maxHealth;
                 break;
+            case ItemData.ItemType.Explosion:
+                Debug.Log("entré al script item");
+                GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+                foreach (GameObject enemy in enemies)
+                {
+                    enemy.GetComponent<Enemy>().Explosion();
+                }
+                GameManager.instance.ganar = true;
+                break;
         }
 
         
@@ -106,4 +117,5 @@ public class Item : MonoBehaviour
             GetComponent<Button>().interactable = false;
         }
     }
+
 }

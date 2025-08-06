@@ -57,27 +57,56 @@ public class LevelUp : MonoBehaviour
         int[] ran = new int[3];
         while (true)
         {
-            ran[0] = Random.Range(0, items.Length);
-            ran[1] = Random.Range(0, items.Length);
-            ran[2] = Random.Range(0, items.Length);
+            ran[0] = Random.Range(0, items.Length-1);
+            ran[1] = Random.Range(0, items.Length-1);
+            ran[2] = items.Length-2;
 
             if (ran[0] != ran[1] && ran[1] != ran[2] && ran[0] != ran[2])
             {
                 break;
             }
         }
-        for (int i = 0 ; i < ran.Length ; i++)
-            {
-                Item ranItem = items[ran[i]];
 
+        for (int i = 0 ; i < ran.Length ; i++)
+        {
+            Item ranItem = items[ran[i]];
+
+            // Verificar si TODOS los items están al máximo nivel
+            bool allItemsMaxed = true;
+            for (int j = 0; j < items.Length - 2; j++) // -1 para excluir el item[5]
+            {
+                if (items[j].level < items[j].data.damages.Length)
+                {
+                    allItemsMaxed = false;
+                    break;
+                }
+            }
+
+            if (allItemsMaxed)
+            {
+                // Si todos están al máximo, mostrar solo el item especial
+                items[5].gameObject.SetActive(true);
+            }
+            else
+            {
+                // Si no todos están al máximo, mostrar el item normal
                 if (ranItem.level == ranItem.data.damages.Length)
                 {
-                    items[4].gameObject.SetActive(true);
+                    // Este item está al máximo, buscar otro
+                    for (int k = 0; k < items.Length - 1; k++)
+                    {
+                        if (items[k].level < items[k].data.damages.Length)
+                        {
+                            items[k].gameObject.SetActive(true);
+                            break;
+                        }
+                    }
                 }
                 else
                 {
                     ranItem.gameObject.SetActive(true);
                 }
             }
+        }
     }
 }
