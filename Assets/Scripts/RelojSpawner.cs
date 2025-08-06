@@ -7,7 +7,7 @@ public class RelojSpawner : MonoBehaviour
     public float minDistance = 3f; // Distancia mínima del jugador
     public float maxDistance = 7f; // Distancia máxima del jugador
     public GameObject relojPrefab;
-    public Vector2 spawnPosition;
+    public Vector2 spawnPos;
     public float spawnTime = 3f;
     public float maxClocksOnMap = 3f;
     private float timer = 0f;
@@ -51,7 +51,7 @@ public class RelojSpawner : MonoBehaviour
 
         Vector2 randomDirection = Random.insideUnitCircle.normalized;
         float randomDistance = Random.Range(minDistance, maxDistance);
-        Vector2 spawnPos = playerPos + new Vector2(randomDirection.x, randomDirection.y) * randomDistance;
+        spawnPos = playerPos + new Vector2(randomDirection.x, randomDirection.y) * randomDistance;
         //int randomIndex = Random.Range(0, spawnPoints.Length);
         Instantiate(relojPrefab, spawnPos, Quaternion.identity);
         clocksOnMap++;

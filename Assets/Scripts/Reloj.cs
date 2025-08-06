@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Reloj : MonoBehaviour
 {
-    public float timeToDestroy = 5f;
+    public float timeToDestroy = 8f;
     void Update()
     {
         timeToDestroy -= Time.deltaTime;
@@ -18,7 +18,7 @@ public class Reloj : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             Debug.Log("Player ha entrado en el trigger");
-            GameManager.instance.maxGameTime += 10f;
+            GameManager.instance.maxGameTime += 35f;
             Destroy(this.gameObject);
             RelojSpawner.instance.clocksOnMap--;
         }

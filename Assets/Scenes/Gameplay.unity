@@ -331,6 +331,7 @@ GameObject:
   - component: {fileID: 97907321}
   - component: {fileID: 97907323}
   - component: {fileID: 97907324}
+  - component: {fileID: 97907325}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -496,6 +497,25 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &97907325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 97907320}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 817a46d4bddaeaf408f3051deb894c35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minDistance: 3
+  maxDistance: 7
+  relojPrefab: {fileID: 4858396553961679282, guid: 87a26f928768d5541ad2cb5248ab43e3, type: 3}
+  spawnPos: {x: 0, y: 0}
+  spawnTime: 3
+  maxClocksOnMap: 3
+  clocksOnMap: 0
 --- !u!1 &339391263
 GameObject:
   m_ObjectHideFlags: 0
@@ -593,7 +613,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2802492291799716587, guid: 6eb58c8c5ef3a644d9b94d34b2c22619, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4831869788858668684, guid: 6eb58c8c5ef3a644d9b94d34b2c22619, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5595,15 +5615,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4159661832346118746, guid: 52bdfecd0558e8440863e4b096bd43ed, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4159661832346118746, guid: 52bdfecd0558e8440863e4b096bd43ed, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4159661832346118746, guid: 52bdfecd0558e8440863e4b096bd43ed, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4229891087958595124, guid: 52bdfecd0558e8440863e4b096bd43ed, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -6334,6 +6354,11 @@ AudioSource:
 --- !u!1 &1032638378 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2191218470664918060, guid: 9145ccb0d2d6eb34eaed776e0ccf4f6a, type: 3}
+  m_PrefabInstance: {fileID: 2071937778}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1032638386 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4740744559833018626, guid: 9145ccb0d2d6eb34eaed776e0ccf4f6a, type: 3}
   m_PrefabInstance: {fileID: 2071937778}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1237194736
@@ -19765,6 +19790,57 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17f667d1912ea4d4aa3eafe49b4e3147, type: 3}
+--- !u!1 &1931829055
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1931829056}
+  - component: {fileID: 1931829057}
+  m_Layer: 0
+  m_Name: SpawnReloj (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1931829056
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1931829055}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1032638386}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1931829057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1931829055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 817a46d4bddaeaf408f3051deb894c35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minDistance: 3
+  maxDistance: 7
+  relojPrefab: {fileID: 4858396553961679282, guid: 87a26f928768d5541ad2cb5248ab43e3, type: 3}
+  spawnPos: {x: 0, y: 0}
+  spawnTime: 5
+  maxClocksOnMap: 3
+  clocksOnMap: 0
 --- !u!1001 &2071937778
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19837,7 +19913,10 @@ PrefabInstance:
     m_RemovedGameObjects:
     - {fileID: 777996906648716030, guid: 9145ccb0d2d6eb34eaed776e0ccf4f6a, type: 3}
     - {fileID: 2841127598356955854, guid: 9145ccb0d2d6eb34eaed776e0ccf4f6a, type: 3}
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 4740744559833018626, guid: 9145ccb0d2d6eb34eaed776e0ccf4f6a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1931829056}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9145ccb0d2d6eb34eaed776e0ccf4f6a, type: 3}
 --- !u!1 &2101355931

@@ -541,6 +541,7 @@ Transform:
   - {fileID: 6464350116823838786}
   - {fileID: 6102671678954336901}
   - {fileID: 4065996710594465877}
+  - {fileID: 6155167796527490209}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1957456803506491242
@@ -678,6 +679,7 @@ MonoBehaviour:
   speed: 3
   scanner: {fileID: 0}
   hands: []
+  loadScene: {fileID: 0}
 --- !u!114 &5290367642036104253
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -809,6 +811,57 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6464350116823838786}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2708266307494982497
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6155167796527490209}
+  - component: {fileID: 6116606882644677323}
+  m_Layer: 0
+  m_Name: SpawnReloj
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6155167796527490209
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2708266307494982497}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4740744559833018626}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6116606882644677323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2708266307494982497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 817a46d4bddaeaf408f3051deb894c35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minDistance: 3
+  maxDistance: 7
+  relojPrefab: {fileID: 4858396553961679282, guid: 87a26f928768d5541ad2cb5248ab43e3, type: 3}
+  spawnPos: {x: 0, y: 0}
+  spawnTime: 5
+  maxClocksOnMap: 3
+  clocksOnMap: 0
 --- !u!1 &2936999648806266325
 GameObject:
   m_ObjectHideFlags: 0
