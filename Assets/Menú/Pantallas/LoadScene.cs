@@ -27,6 +27,11 @@ public class LoadScene : MonoBehaviour
         {
             StartCoroutine(DelayDerrota());
         }
+        else if (GameManager.instance.gameTime >= GameManager.instance.maxGameTime)
+        {
+            PantallaDerrota.SetActive(true);
+            Time.timeScale = 0;
+        }
     }
 
     public IEnumerator DelayDerrota()
