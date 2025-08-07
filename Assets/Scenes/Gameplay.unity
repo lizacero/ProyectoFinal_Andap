@@ -20097,6 +20097,14 @@ PrefabInstance:
       propertyPath: spawnRate
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 4747498514004685729, guid: 9145ccb0d2d6eb34eaed776e0ccf4f6a, type: 3}
+      propertyPath: minSpawnRate
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4747498514004685729, guid: 9145ccb0d2d6eb34eaed776e0ccf4f6a, type: 3}
+      propertyPath: spawnRateDecrease
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 7841889571269338066, guid: 9145ccb0d2d6eb34eaed776e0ccf4f6a, type: 3}
       propertyPath: count
       value: 3
