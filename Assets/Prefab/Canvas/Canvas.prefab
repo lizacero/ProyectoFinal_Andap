@@ -1042,6 +1042,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 7749944980477307640}
   - {fileID: 7028491455207579276}
   - {fileID: 4803106429995034743}
   - {fileID: 6957919530820154119}
@@ -1619,7 +1620,6 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 7749944980477307640}
   - {fileID: 2267691502559413198}
   - {fileID: 9092253276411496975}
   m_Father: {fileID: 4390421106854847712}
@@ -2160,12 +2160,12 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 7089469291234393364}
   - {fileID: 7911602254882717731}
   - {fileID: 7280755430287956530}
   - {fileID: 7505380364348314809}
   - {fileID: 5870435446388534109}
   - {fileID: 6294192495645452203}
+  - {fileID: 7089469291234393364}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -2250,6 +2250,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   botonPausa: {fileID: 5958359589819254279}
   menuPausa: {fileID: 7038352374107376269}
+  musicSource: {fileID: 0}
 --- !u!1 &3284289187287510765
 GameObject:
   m_ObjectHideFlags: 0
@@ -2846,7 +2847,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1201100613657133748}
-  m_Father: {fileID: 7089469291234393364}
+  m_Father: {fileID: 7911602254882717731}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
